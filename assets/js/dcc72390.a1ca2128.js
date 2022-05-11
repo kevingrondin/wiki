@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkevingrondin=self.webpackChunkkevingrondin||[]).push([[8634],{4601:function(e){e.exports=JSON.parse('{"label":"facebook","permalink":"/wiki/blog/tags/facebook","allTagsPath":"/wiki/blog/tags","count":1}')}}]);

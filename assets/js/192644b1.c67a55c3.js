@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkevingrondin=self.webpackChunkkevingrondin||[]).push([[7994],{8294:function(n){n.exports=JSON.parse('{"label":"hello","permalink":"/kevingrondin/blog/tags/hello","allTagsPath":"/kevingrondin/blog/tags","count":2}')}}]);

@@ -9,7 +9,7 @@ const config = {
   title: 'Kevin Grondin',
   tagline: 'Technologies, tools, and ideas',
   url: 'https://kevingrondin.github.io',
-  baseUrl: '/',
+  baseUrl: '/wiki/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
@@ -17,8 +17,8 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'kevingrondin', // Usually your GitHub org/user name.
-  projectName: 'kevingrondin.github.io', // Usually your repo name.
-
+  projectName: 'wiki', // Usually your repo name.
+  // deploymentBranch: 'gh-pages', // The branch to deploy to.
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
@@ -57,7 +57,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'My Site',
+        title: 'Wiki',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',

@@ -1,6 +1,6 @@
 ---
-slug: welcome
-title: Welcome
+slug: bienvenue
+title: Bienvenue
 authors: [kevin]
 tags: [hello]
 ---

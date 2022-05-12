@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Kevin Grondin',
-  tagline: 'Technologies, tools, and ideas',
+  tagline: 'Techno, outils, idées, codes, projets',
   url: 'https://kevingrondin.github.io',
   baseUrl: '/wiki/',
   onBrokenLinks: 'throw',

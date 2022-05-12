@@ -8,9 +8,9 @@
     <subtitle>Kevin Grondin Blog</subtitle>
     <icon>https://kevingrondin.github.io/wiki/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[Welcome]]></title>
-        <id>welcome</id>
-        <link href="https://kevingrondin.github.io/wiki/blog/welcome"/>
+        <title type="html"><![CDATA[Bienvenue]]></title>
+        <id>bienvenue</id>
+        <link href="https://kevingrondin.github.io/wiki/blog/bienvenue"/>
         <updated>2022-05-12T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[J'ai décidé de commencer en 2022 un nouveau blog, un peu en retard sachant qu'on est en mai 😏]]></summary>
         <content type="html"><![CDATA[<p>J'ai décidé de commencer en 2022 un nouveau blog, un peu en retard sachant qu'on est en mai 😏</p><p>Tout la documentation et la partie blog est réalisé avec un simple outil <a href="https://docusaurus.io/" target="_blank" rel="noopener noreferrer">Docusaurus</a></p><p><img loading="lazy" alt="Docusaurus Plushie" src="/wiki/assets/images/docusaurus-plushie-banner-a60f7593abca1e3eef26a9afa244e4fb.jpeg" width="1500" height="500" class="img_E7b_"></p>]]></content>

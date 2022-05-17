@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkevingrondin=self.webpackChunkkevingrondin||[]).push([[535],{5641:function(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Closer","permalink":"/wiki/blog/closer"},{"title":"Bienvenue","permalink":"/wiki/blog/bienvenue"}]}')}}]);

@@ -1,0 +1,29 @@
+---
+slug: dons
+title: Dons
+authors: [kevin]
+tags: [green]
+---
+
+Hello mes chers amis développeurs de l'extrême.
+
+Nous avons la plupart d'entre nous un PC non utilisé, qu'on aurait voulu utiliser pour faire un serveur.
+Réparer pour quelqu'un de la famille ou autre.
+Mais par manque de temps, il reste chez nous, et on s'encombre pour rien.
+
+Il est temps de se dire la vérité que ce PC n'aura pas une seconde vie avec nous et il est temps d'en faire dons.
+
+```mdx-code-block
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
+
+<div className="video-container">
+  <LiteYouTubeEmbed
+    // cSpell:ignore Yhyx Sksg
+    id="Nxva5Rj1nJM"
+    params="autoplay=1&autohide=1&showinfo=0&rel=0"
+    title="Reportage: Association agame"
+    poster="maxresdefault"
+    webp
+  />
+</div>
+```

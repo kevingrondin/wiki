@@ -4,10 +4,21 @@
         <title>Kevin Grondin Blog</title>
         <link>https://kevingrondin.github.io/wiki/blog</link>
         <description>Kevin Grondin Blog</description>
-        <lastBuildDate>Tue, 17 May 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 01 Jun 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Dons]]></title>
+            <link>https://kevingrondin.github.io/wiki/blog/dons</link>
+            <guid>dons</guid>
+            <pubDate>Wed, 01 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Hello mes chers amis développeurs de l'extrême.]]></description>
+            <content:encoded><![CDATA[<p>Hello mes chers amis développeurs de l'extrême.</p><p>Nous avons la plupart d'entre nous un PC non utilisé, qu'on aurait voulu utiliser pour faire un serveur.
+Réparer pour quelqu'un de la famille ou autre.
+Mais par manque de temps, il reste chez nous, et on s'encombre pour rien.</p><p>Il est temps de se dire la vérité que ce PC n'aura pas une seconde vie avec nous et il est temps d'en faire dons.</p><div class="video-container"><link rel="preload" href="https://i.ytimg.com/vi_webp/Nxva5Rj1nJM/maxresdefault.webp" as="image"><article class="yt-lite" data-title="Reportage: Association agame" style="background-image:url(https://i.ytimg.com/vi_webp/Nxva5Rj1nJM/maxresdefault.webp);--aspect-ratio:56.25%"><button class="lty-playbtn" aria-label="Watch Reportage: Association agame"></button></article></div>]]></content:encoded>
+            <category>green</category>
+        </item>
         <item>
             <title><![CDATA[Closer]]></title>
             <link>https://kevingrondin.github.io/wiki/blog/closer</link>
@@ -24,7 +35,7 @@
             <guid>bienvenue</guid>
             <pubDate>Thu, 12 May 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[J'ai décidé de commencer en 2022 un nouveau blog, un peu en retard sachant qu'on est en mai 😏]]></description>
-            <content:encoded><![CDATA[<p>J'ai décidé de commencer en 2022 un nouveau blog, un peu en retard sachant qu'on est en mai 😏</p><p>Tout la documentation et la partie blog est réalisé avec un simple outil <a href="https://docusaurus.io/" target="_blank" rel="noopener noreferrer">Docusaurus</a></p><p><img loading="lazy" alt="Docusaurus Plushie" src="/wiki/assets/images/docusaurus-plushie-banner-a60f7593abca1e3eef26a9afa244e4fb.jpeg" width="1500" height="500" class="img_E7b_"></p>]]></content:encoded>
+            <content:encoded><![CDATA[<p>J'ai décidé de commencer en 2022 un nouveau blog, un peu en retard sachant qu'on est en mai 😏</p><p>Tout la documentation et la partie blog est réalisé avec un simple outil <a href="https://docusaurus.io/" target="_blank" rel="noopener noreferrer">Docusaurus</a></p><p><img loading="lazy" alt="Docusaurus Plushie" src="/wiki/assets/images/docusaurus-plushie-banner-a60f7593abca1e3eef26a9afa244e4fb.jpeg" width="1500" height="500" class="img_ev3q"></p>]]></content:encoded>
             <category>hello</category>
         </item>
     </channel>

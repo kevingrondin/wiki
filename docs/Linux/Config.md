@@ -37,15 +37,6 @@ if ! shopt -oq posix; then
 fi
 ```
 
-## Personnaliser
-
-Installer zsh 
-
-```Shell
-sudo apt-get install -y zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-
 ### Hostname
 
 ```SHELL

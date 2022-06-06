@@ -2,7 +2,10 @@
 sidebar_position: 1
 ---
 
-# 🧨 Installation
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
 
 > L'installation est valable pour un serveur chez OVH (kimsufi) ou un raspberry
 
@@ -26,7 +29,10 @@ sidebar_position: 1
 | /mnt               | pour monter un système de fichiers externe                                                                                      |
 | /media             | CDROM                                                                                                                           |
 
-## Installation (Raspberry)
+## Installation
+
+<Tabs>
+<TabItem value="Raspberry">
 
 Télécharger l'image [ici](https://www.raspberrypi.org/downloads/raspbian/) la version light est suffisante
 
@@ -90,6 +96,54 @@ sudo raspi-config
 ```
 
 changer les options de locatisations (FR UTF8)
+
+</TabItem>
+<TabItem value="VPS">
+
+> Une fois que vous avez acheté votre __VPS__ et votre __Nom de domaine__
+
+### Redirection
+
+Il faut faire la redirection du nome domaine vers votre adresse IP du serveur
+
+![Installation](./capture.png)
+
+Sur les deux types __A__ faudra remplacer par votre adresse IP du serveur
+
+Ce que je conseil aussi c'est de rajouter un DNS gratuit comme __noip.com__
+
+Pour avoir un nom domaine de secours gratuitement
+
+### Sécurité SSL
+
+Avoir un nom de domaine sécurisé est plus qu'essentiel.
+
+Il faut installer les paquets certbot
+
+```Shell
+apt install certbot python3-certbot-nginx
+```
+
+Executer le script
+
+(Vous pouvez rajouter un sous domaine avec l'argumenet __-d__ exemple __-d api.kevingrondin.fr__)
+
+```Shell
+certbot --nginx -d kevingrondin.fr -d www.kevingrondin.fr
+```
+
+Vérifier si le script est lancé de manière automatisé
+
+```Shell
+systemctl status certbot.timer
+```
+
+Voila vous n'avez plus qu'a vérifier si tout est bon
+
+</TabItem>
+</Tabs>
+
+Une fois connecté en SSH
 
 ## Mettre à jour le système
 

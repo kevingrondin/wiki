@@ -1,0 +1,64 @@
+---
+sidebar_position: 1
+---
+
+# 🏗️ Initialisation
+
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+> Pour ce projet nous auront besoin à l'accés natif android
+  
+  * React-Native
+  * TypeScript
+  * Sqlite
+
+## Installation
+
+Deux façon de commencer un projet
+
+<Tabs>
+<TabItem value="React Native">
+
+```shell title="Creer un nouveau projet"
+npx react-native init <project-name> --template react-native-template-typescript
+```
+
+:::tip Si aucun problème détecté
+
+Votre nouveau projet est prêt, vous pouvez cotninuer au chapitre suivant
+
+:::
+
+
+## Attention
+
+:::caution Si problème lors de l'installation
+
+Si vous rencontrer des problèmes pour l'installation faire les ligne de commande ci-dessous
+
+:::
+
+```shell title="Desinstaller react-native-cli en global"
+npm uninstall -g react-native-cli or yarn global remove react-native-cli
+```
+
+```shell title="Installion forcé sans react-native-cli"	
+npx react-native --ignore-existing init <project-name> --template react-native-template-typescript
+```
+
+</TabItem>
+<TabItem value="Expo">
+
+```shell title="Creer un nouveau projet"
+# Installer expo-cli en global
+yarn global add expo-cli
+
+# Creer un nouveau projet
+expo init <project-name>
+```
+
+</TabItem>
+</Tabs>

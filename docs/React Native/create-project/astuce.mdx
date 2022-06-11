@@ -1,0 +1,301 @@
+---
+sidebar_position: 10
+---
+
+# 🔩 Astuce
+
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+> Quelque astuce à savoir sur la technologie React Native
+
+## Android Natif
+
+### Ecran blanc avant SplashScreen
+
+Petite spécificité qui permet de savoir si une application est réalisé en react native c'est un ecran blanc qui s'affiche avant sont ouverture
+
+Dans notre fichier **styles.xml** on ajoute les balises suivante dans la balise **style** **windowDisablePreview** desactive cette écran
+
+```xml
+<item name="android:textColor">#000000</item>
+<item name="android:windowDisablePreview">true</item>
+<item name="android:windowNoTitle">true</item>
+<item name="android:windowActionBar">false</item>
+<item name="android:windowFullscreen">true</item>
+<item name="android:windowContentOverlay">@null</item>
+<item name="android:windowIsTranslucent">true</item>
+```
+
+:::caution Attention
+
+Cela peu engendré des bugs, ne pas l'insérer pendant la période de développement
+
+:::
+
+### Bloquer l'ecran en mode portrait
+
+On veut que quand le portable passe en paysage, le smartphone reste en mode portrait
+
+Dans le fichier **AndroidManifest.xml** on ajoute un attribut dans la balise **activity**
+
+```xml
+<activity
+...
+android:screenOrientation="portrait" />
+```
+
+### ScreenShot
+
+Si on veut eviter de diffuser des screenshot d'application avec des information confidentielle des clients, on bloque les screenshot
+
+```java title="MainActivity.java"
+import android.os.Bundle;
+import android.view.WindowManager;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
+}
+```
+
+> Si on veux forcer le néttoyage d'Android dans le repertoire **android**
+
+```shell
+gradlew clean
+```
+
+## Javascript
+
+### Bind
+
+> Permet de précharger les fonctions
+
+```jsx
+import { Pressable } from 'react-native';
+
+fonction Item({edit, id}) {
+    return (
+        <View>
+            <Pressable 
+                onPress={edit.bind(this, id)}
+            >
+                <Text>{item.name}</Text>
+            </Pressable>
+        </View>
+    );
+}
+```
+
+## React Native
+
+### BackButon avec useEffect
+
+Quand on revien sur une page qui est déja passé, le useEffect ne se relance plus
+
+```jsx
+// en dehors de la fonction principale avec les autres import
+import { useIsFocused } from "@react-navigation/native";
+
+// Dans la fonction principale
+const isFocused = useIsFocused();
+
+React.useEffect(() => {
+  if (isFocused) {
+    // chose à faire quand on revient sur la page
+  }
+}, [isFocused]);
+```
+
+### BackHandler
+
+Sur certaine vue on veut bloquer le retour en arrière
+
+```jsx
+// on rajoute BackHandler dans l'import react-natif
+import { BackHandler } from "react-native";
+
+// dans la fonction principale
+React.useEffect(() => {
+  BackHandler.addEventListener("hardwareBackPress", () => true);
+  return () => BackHandler.removeEventListener("hardwareBackPress", () => true);
+}, []);
+```
+
+### Button
+
+Les element Pressable n'ont pas d'interactivité UI, pour en rajouter
+
+<Tabs>
+<TabItem value="Android">
+
+> L'attribut __android_ripple__ est disponible que pour Android
+
+```jsx
+<Pressable
+    android_ripple={{
+        color: '#ff0000',
+        borderless: true,
+        radius: 10,
+    }}
+    onPress={() => navigation.navigate("Android")}
+>
+    <Text>Android</Text>
+</Pressable>
+```
+
+</TabItem>
+<TabItem value="IOS">
+
+```jsx
+<Pressable
+    style={ pressData => pressData.pressed && { opacity: 0.5 } }
+    onPress={() => navigation.navigate("Android")}
+>
+    <Text>Android</Text>
+</Pressable>
+```
+
+</TabItem>
+</Tabs>
+
+
+### Flatlist
+
+Un peu plus optimisé que ScrollView vous avez Flatlist
+
+```jsx
+const [items, setItems] = useState([])
+
+// Exemple avec ScrollView
+<ScrollView>
+    {items.map((item, index) => (
+        <View key={index}>
+            <Text>{item.title}</Text>
+        </View>
+    ))}
+</ScrollView>
+
+// Exemple avec Flatlist
+<FlatList
+    data={items}
+    renderItem={({ item }) => (
+        <View>
+            <Text>{item.title}</Text>
+        </View>
+    )}
+    keyExtractor={(item, index) => index}
+/>
+```
+
+### Route
+
+Si on est dans un composant qui
+_ n'hérite de **navigation**
+_ n'est pas definis dans la liste des routes possible
+
+```jsx
+import { useNavigation } from "@react-navigation/core";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
+// si vous avez défini une StackParams vous pouvez l'importer ici
+import StackParams from '../navigation'
+
+// dans la foncition principale
+const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
+```
+
+### OnBoarding
+
+Generalement en intro application pour expliquer son fonctionnement
+
+```jsx
+import AppIntroSlider from 'react-native-app-intro-slider';
+
+// data des différente slides
+const slides = [
+    {
+        key: 1,
+        title: 'Premier titre',
+        text: 'Description',
+        image: 'Image'
+    }
+];
+
+const onBoarding = () => {
+
+    //Rendu d'une slide
+    const _renderItem = ({ item }) => (
+        <View>
+            <Image source={item.image} />
+            <Text>{item.title}</Text>
+            <Text>{item.text}</Text>
+        </View>
+    )
+
+    // idem pour _doneButton
+    const _nextButton = () => (
+        <View>
+            <Text>Suivant</Text>
+        </View>
+    )
+
+    // fin des slide
+    const _onDone = () => navigation.navigate('Home');
+
+    return (
+        <View>
+            <AppIntroSlider
+                renderItem={_renderItem}
+                data={slides}
+                onDone={_onDone}
+                bottomButton
+                dotStyle= // style du point couleur
+                activeDotStyle= // style du point avec couleur et taille différente
+                renderNextButton={_nextButton}
+                renderDoneButton={_doneButton}
+            />
+        </View>
+    )
+}
+```
+
+### Toast
+
+Quand une action est réalisé les utilisateurs souhaitent voir une confirmation visuelle rapide
+
+```jsx
+import { ToastAndroid } from "react-native";
+
+// dans la fonction principale on appèle showToast
+const showToast = () => ToastAndroid.show("Votre message", ToastAndroid.SHORT);
+```
+
+### Vibration
+
+Quand on appuye sur un bouton les utilisateurs aiment avoir un petit vibrement pour confirmer l'appuye comme un retour aptique
+
+:::caution Ajouter la permission android.permission.VIBRATE
+
+Rajouter `<uses-permission android:name="android.permission.VIBRATE"/>` dans **AndroidManifest.xml**.
+
+:::
+
+```jsx
+import { Vibration } from "react-native";
+
+// dans la fonction principale on appèle vibrate
+const vibrate = () => Vibration.vibrate(70);
+```
+
+## Outil externe
+
+### Déploiement facile
+
+Partager simplement l'application pour quel soit accessible en télechargement
+
+- [Diawi](https://www.diawi.com/)
+- [InstallOnAir](https://www.installonair.com/)

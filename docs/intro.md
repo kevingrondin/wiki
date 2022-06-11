@@ -2,6 +2,6 @@
 sidebar_position: 1
 ---
 
-# Introduction
+# 👋 Introduction
 
-👋 Bonjour est bienvenue sur mon wiki
+Bonjour est bienvenue sur mon wiki, je vais essayer d'alimenter cette base de connaissance 

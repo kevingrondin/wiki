@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkkevingrondin=self.webpackChunkkevingrondin||[]).push([[700],{2647:function(e){e.exports=JSON.parse('{"label":"hello","permalink":"/wiki/blog/tags/hello","allTagsPath":"/wiki/blog/tags","count":1}')}}]);

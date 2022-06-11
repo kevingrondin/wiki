@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkevingrondin=self.webpackChunkkevingrondin||[]).push([[7693],{7283:function(e){e.exports=JSON.parse('{"label":"freelance","permalink":"/wiki/blog/tags/freelance","allTagsPath":"/wiki/blog/tags","count":1}')}}]);

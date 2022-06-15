@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# Installer Gitlab
+# 🦊 Installer Gitlab
 
 choisir un repertoire comme __var/www/gitlab__ creer __docker-compose.yml__
 

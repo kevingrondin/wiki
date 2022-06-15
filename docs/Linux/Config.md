@@ -121,3 +121,68 @@ sudo systemctl disable apache2
 # libre office
 sudo apt-get remove --purge libreoffice*
 ```
+
+## Connexion
+
+### Pré-requis serveur
+
+> les pré-requis ne sont pas nécessaire mais au cas ou vous êtes sur un vieux système
+
+```shell
+# normalement y'a pas besoin de télécharger
+sudo apt-get install openssh-server
+```
+
+Vérifier que __PasswordAuthentication__ est à __yes__ car une fois la configuration terminé il faudra le mettre à __no__ pour eviter connexion avec le mot de passe, et vérifier que __AuthorizedKeysFile /.ssh/authorized_keys__ est décommentez
+
+On redemarre le service à chaque modification
+
+```shell
+sudo nano /etc/ssh/sshd_config
+```
+
+### Client
+
+Creations des clés
+
+```shell
+ssh-keygen -t rsa -b 4096 -C "email_address"
+```
+
+```shell
+sudo chmod 600 ~/.ssh/id_rsa
+sudo chmod 600 ~/.ssh/id_rsa.pub
+```
+
+envoyer la clée sur le serveur
+
+```shell
+cat ~/.ssh/id_rsa.pub | ssh <USERNAME>@<IP> 'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys'
+
+# ou
+
+ssh-copy-id utilisateur@ipduserveur
+```
+
+### Plusieur clé privé
+
+Si vous avez plusieur clé, sur certaine ligne de commande il faudra spécifier la clé à utiliser
+
+```shell
+ssh -i ~/.ssh/<KEY> <USERNAME>@<IP>
+```
+
+### Windows
+
+> WSL 1 récupérer les clée depuis windows
+
+Avec __Pageant__ et __wsl-ssh-pageant-amd64-gui__ votre clée privée et aussi importé dans votre WSL
+
+`win + r` tapez `shell:startup` creer un racourci __wsl-ssh-pageant-amd64-gui__ vers
+
+__c:\user\Documents\Putty\wsl-ssh-pageant-amd64-gui.exe --force --systray --winssh ssh-pageant --wsl c:\user\Documents\Putty\ssh-agent.sock__
+
+Modifier vos variables d'environnement
+
+GIT_SSH : C:\Program Files\PuTTY\plink.exe
+SSH_AUTH_SOCK : \\.\pipe\ssh-pageant

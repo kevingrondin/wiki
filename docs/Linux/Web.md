@@ -22,7 +22,7 @@ deux dossiers :
 
 Ici de simple dossier static sont diposé dans __/var/www__
 
-```md
+```Batch
 server {
     listen 443 ssl;
     server_name kevingrondin.fr www.kevingrondin.fr
@@ -55,6 +55,27 @@ server {
         proxy_set_header Host $host;
         proxy_cache_bypass $http_upgrade;
         try_files $uri $uri/ /index.html;
+    }
+
+    ssl_certificate /etc/letsencrypt/live/kevingrondin.fr/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/kevingrondin.fr/privkey.pem;
+}
+```
+
+si on est pas sur du site static on rajoute __proxy_pass__
+
+```Batch
+server {
+    listen 443 ssl;
+    server_name api.kevingrondin.fr
+
+    location / {
+        proxy_pass http://localhost:4000
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
     }
 
     ssl_certificate /etc/letsencrypt/live/kevingrondin.fr/fullchain.pem;

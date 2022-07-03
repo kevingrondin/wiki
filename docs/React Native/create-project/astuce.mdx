@@ -162,6 +162,43 @@ Les element Pressable n'ont pas d'interactivité UI, pour en rajouter
 </TabItem>
 </Tabs>
 
+```jsx
+// on peu rajouter de l'animation
+const animatedValue = new Animated.Value(1);
+
+const onPressIn = () => {
+    Animated.spring(animatedValue, {
+        toValue: 0.9,
+        useNativeDriver: true
+    }).start()
+}
+
+const onPressOut = () => {
+    Animated.spring(animatedValue, {
+        toValue: 1,
+        useNativeDriver: true
+    }).start()
+}
+
+const animatedStyle = {
+    transform: [{scale: animatedValue }]
+}
+
+return (
+    <Animated.View style={animatedStyle}>
+        <TouchableHighlight
+            style={tw`rounded-xl`}
+            onPressIn={onPressIn}
+            onPressOut={onPressOut}
+        >
+            <View style={tw`flex justify-center items-center w-full h-16 bg-blue-600 rounded-xl`}>
+                <Text style={tw`text-white text-xl`}>{title}</Text>
+            </View>
+        </TouchableHighlight>
+    </Animated.View>
+)
+```
+
 
 ### Flatlist
 

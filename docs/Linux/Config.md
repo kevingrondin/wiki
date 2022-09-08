@@ -14,6 +14,20 @@ Changer le mot de passe
 passwd
 ```
 
+:::tip Ajout d'une clée SSH directement sur OVH
+
+Sur ovh, dans __mon compte__ > __produits et services__ > __mes services__ > __clés ssh__
+
+:::
+
+:::tip Si vous êtes root est que vous voulez changer le mot de passe d'un utilisateur
+
+```Shell
+sudo passwd <utilisateur>
+```
+
+:::
+
 Mettre a jour le Noyau
 
 ```Shell
@@ -86,7 +100,7 @@ sudo timedatectl set-ntp off
 
 ## Securité
 
-> Banir les adresse IP qui essay de se connecter chez vous
+### Banir IP
 
 ```Shell
 # Installer
@@ -109,6 +123,24 @@ sudo fail2ban-client status
 # Check les intrusion
 sudo fail2ban-client status sshd
 tail -f /var/log/fail2ban.log
+```
+
+### Pare-feu
+
+```Shell
+# Installation
+sudo apt install ufw
+
+# Verifier le statut
+sudo ufw status
+
+# Activer le firewall
+sudo ufw enable
+
+# Autoriser le port 22 http et https
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw allow https
 ```
 
 ## Supression d'apache

@@ -8,12 +8,46 @@ sidebar_position: 1
 
 ## Installation
 
+```shell title="Initialisation du projet"
+npx create-expo-app wireframe --template
+```
+
 Trés peu de dépendances sont nécessaire pour la création du wireframe
 
   * Tailwind qui va nous permettre de faire nos bloc sans CSS
 
 ```shell title="Installation Tailwind"
-npm i twrnc --save
+yarn add nativewind
+yarn add --dev tailwindcss
+```
+
+```shell title="Setup Tailwind"
+npx tailwindcss init
+```
+
+```js title="tailwind.config.js"
+module.exports = {
+// highlight-start
+// content: [],
+    content: ["./App.{js,jsx,ts,tsx}", "./src/**/*.{js,jsx,ts,tsx}"],
+// highlight-end
+    theme: {
+        extend: {},
+    },
+    plugins: [],
+}
+```
+
+```js title="babel.config.js"
+module.exports = function (api) {
+  api.cache(true);
+  return {
+    presets: ["babel-preset-expo"],
+    // highlight-start
+    plugins: ["nativewind/babel"],
+    // highlight-end
+  };
+};
 ```
 
 ## Navigation vers les principaux ecrans
